@@ -1,0 +1,221 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel OpenApi Demo Documentation",
+        "contact": {
+            "email": "admin@admin.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8089/api",
+            "description": "NGNIX serwer"
+        }
+    ],
+    "paths": {
+        "/task1/{year}/{month}": {
+            "get": {
+                "tags": [
+                    "tasks"
+                ],
+                "summary": "view calendar",
+                "operationId": "160c4aa327352e3c79b67dc29681d18c",
+                "parameters": [
+                    {
+                        "name": "year",
+                        "in": "path",
+                        "description": "Calendar year from 1 to 9999",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": "2022"
+                        }
+                    },
+                    {
+                        "name": "month",
+                        "in": "path",
+                        "description": "Calendar month. Please use english langauge",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "September"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/task2/{excell_string}": {
+            "get": {
+                "tags": [
+                    "tasks"
+                ],
+                "summary": "Change Excell cell string fromat to numeric format",
+                "operationId": "5504bbbd8e5f679d8a3a6bbc67b4b295",
+                "parameters": [
+                    {
+                        "name": "excell_string",
+                        "in": "path",
+                        "description": "Excell string that represt cell",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "A2"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/task3/user": {
+            "post": {
+                "tags": [
+                    "tasks"
+                ],
+                "summary": "Store new project",
+                "description": "create User for task 3",
+                "operationId": "7cda7ac86916a58c381e4a4c3018e93b",
+                "requestBody": {
+                    "description": "pass data to create user record",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "user name",
+                                        "type": "string",
+                                        "example": "Jan"
+                                    },
+                                    "email": {
+                                        "description": "user email",
+                                        "type": "string",
+                                        "example": "jankowalski@wp.pl"
+                                    },
+                                    "password": {
+                                        "description": "user password",
+                                        "type": "string",
+                                        "example": "strongpassword123"
+                                    },
+                                    "date_of_birth": {
+                                        "description": "user date of birth",
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "20-05-2000"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/task3/company": {
+            "post": {
+                "tags": [
+                    "tasks"
+                ],
+                "summary": "Store new project",
+                "description": "create Company for task 3",
+                "operationId": "bdacd741b1d4bd503246818ee98ef41e",
+                "requestBody": {
+                    "description": "pass data to create company record",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "firm_name": {
+                                        "description": "Company name",
+                                        "type": "string",
+                                        "example": "Fake Company"
+                                    },
+                                    "email": {
+                                        "description": "Company email",
+                                        "type": "string",
+                                        "example": "jankowalski@wp.pl"
+                                    },
+                                    "password": {
+                                        "description": "Company password",
+                                        "type": "string",
+                                        "example": "strongpassword123"
+                                    },
+                                    "NIP": {
+                                        "description": "Company NIP",
+                                        "type": "string",
+                                        "example": "6074526612"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+    }
+}
