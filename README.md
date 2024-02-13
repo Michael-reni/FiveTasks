@@ -1,4 +1,4 @@
-## Open laravel project in Visual Studio Code or some other IDE and copy .env.example to .env. You can customize some .env variables if you need. 
+## Open laravel project in IDE. You can customize some .env variables if you need. 
 ## Open a terminal and type:  
 ```
 $ cd path/to/ThreeExercises
