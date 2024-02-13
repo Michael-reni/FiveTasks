@@ -1,3 +1,4 @@
+## You Need Docker to run This Project. In case you don't have Docker, You can check each task In TaskController.php
 ## Open laravel project in IDE. You can customize some .env variables if you need. 
 ## Open a terminal and type:  
 ```
