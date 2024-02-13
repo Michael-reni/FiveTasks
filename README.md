@@ -25,7 +25,7 @@ database = postgres
 user = postgres
 password = secret
 ```
-## In PgAdmin Run every query inside PgAdminSQL.txt to create and populate tables for task 4 and 5. (Yes i know i shoud make migrations but is late.).
+## In PgAdmin Run every query inside PgAdminSQL.txt to create and populate tables for task 4 and 5 (Yes i know i shoud make migrations but it is late hour).
 
 ## files to check  for each tasks
 ### task1: "App\Http\Controllers\TaskController->decryptMessage()"
