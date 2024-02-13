@@ -14,32 +14,21 @@
         }
     ],
     "paths": {
-        "/task1/{year}/{month}": {
-            "get": {
+        "/decryptMessage/{message}": {
+            "post": {
                 "tags": [
                     "tasks"
                 ],
-                "summary": "view calendar",
-                "operationId": "160c4aa327352e3c79b67dc29681d18c",
+                "summary": "Decrypt message.",
+                "operationId": "44e9a51513af3e745cb38457585b5abe",
                 "parameters": [
                     {
-                        "name": "year",
+                        "name": "message",
                         "in": "path",
-                        "description": "Calendar year from 1 to 9999",
-                        "required": true,
+                        "description": "Message to decrypt.",
                         "schema": {
-                            "type": "integer",
-                            "example": "2022"
-                        }
-                    },
-                    {
-                        "name": "month",
-                        "in": "path",
-                        "description": "Calendar month. Please use english langauge",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "example": "September"
+                            "type": "String",
+                            "example": "(o>!a!"
                         }
                     }
                 ],
@@ -52,31 +41,27 @@
                             }
                         }
                     },
-                    "422": {
-                        "description": "Unprocessable Entity"
-                    },
                     "500": {
                         "description": "Internal server error"
                     }
                 }
             }
         },
-        "/task2/{excell_string}": {
-            "get": {
+        "/encryptMessage/{message}": {
+            "post": {
                 "tags": [
                     "tasks"
                 ],
-                "summary": "Change Excell cell string fromat to numeric format",
-                "operationId": "5504bbbd8e5f679d8a3a6bbc67b4b295",
+                "summary": "Encrypt message.",
+                "operationId": "1690daddbf033534d223a42b5c640184",
                 "parameters": [
                     {
-                        "name": "excell_string",
+                        "name": "encryptedMessage",
                         "in": "path",
-                        "description": "Excell string that represt cell",
-                        "required": true,
+                        "description": "Message to encrypt.",
                         "schema": {
-                            "type": "string",
-                            "example": "A2"
+                            "type": "String",
+                            "example": "dziala"
                         }
                     }
                 ],
@@ -89,8 +74,38 @@
                             }
                         }
                     },
-                    "422": {
-                        "description": "Unprocessable Entity"
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/lcdDisplay/{digits}": {
+            "post": {
+                "tags": [
+                    "tasks"
+                ],
+                "summary": "Digits",
+                "operationId": "05d712d5575c07f873ed562c9f6134ec",
+                "parameters": [
+                    {
+                        "name": "digits",
+                        "in": "path",
+                        "description": "Digits to display",
+                        "schema": {
+                            "type": "String",
+                            "example": "0123"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
                     },
                     "500": {
                         "description": "Internal server error"
@@ -98,59 +113,21 @@
                 }
             }
         },
-        "/task3/user": {
-            "post": {
+        "/lotteryWinners": {
+            "get": {
                 "tags": [
                     "tasks"
                 ],
-                "summary": "Store new project",
-                "description": "create User for task 3",
-                "operationId": "7cda7ac86916a58c381e4a4c3018e93b",
-                "requestBody": {
-                    "description": "pass data to create user record",
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "name": {
-                                        "description": "user name",
-                                        "type": "string",
-                                        "example": "Jan"
-                                    },
-                                    "email": {
-                                        "description": "user email",
-                                        "type": "string",
-                                        "example": "jankowalski@wp.pl"
-                                    },
-                                    "password": {
-                                        "description": "user password",
-                                        "type": "string",
-                                        "example": "strongpassword123"
-                                    },
-                                    "date_of_birth": {
-                                        "description": "user date of birth",
-                                        "type": "string",
-                                        "format": "date",
-                                        "example": "20-05-2000"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
+                "summary": "Wygrane losy",
+                "operationId": "1eb2dab358cded93aa85042340965d33",
                 "responses": {
-                    "201": {
-                        "description": "Created",
+                    "200": {
+                        "description": "OK",
                         "content": {
                             "application/json": {
                                 "schema": {}
                             }
                         }
-                    },
-                    "422": {
-                        "description": "Unprocessable Entity"
                     },
                     "500": {
                         "description": "Internal server error"
@@ -158,58 +135,21 @@
                 }
             }
         },
-        "/task3/company": {
-            "post": {
+        "/incomeStatistic": {
+            "get": {
                 "tags": [
                     "tasks"
                 ],
-                "summary": "Store new project",
-                "description": "create Company for task 3",
-                "operationId": "bdacd741b1d4bd503246818ee98ef41e",
-                "requestBody": {
-                    "description": "pass data to create company record",
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "firm_name": {
-                                        "description": "Company name",
-                                        "type": "string",
-                                        "example": "Fake Company"
-                                    },
-                                    "email": {
-                                        "description": "Company email",
-                                        "type": "string",
-                                        "example": "jankowalski@wp.pl"
-                                    },
-                                    "password": {
-                                        "description": "Company password",
-                                        "type": "string",
-                                        "example": "strongpassword123"
-                                    },
-                                    "NIP": {
-                                        "description": "Company NIP",
-                                        "type": "string",
-                                        "example": "6074526612"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
+                "summary": "Statystyka zarobków",
+                "operationId": "28efa18632709d4499b553cfb4a35f29",
                 "responses": {
-                    "201": {
-                        "description": "Created",
+                    "200": {
+                        "description": "OK",
                         "content": {
                             "application/json": {
                                 "schema": {}
                             }
                         }
-                    },
-                    "422": {
-                        "description": "Unprocessable Entity"
                     },
                     "500": {
                         "description": "Internal server error"

@@ -19,12 +19,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/task1/{year}/{month}',[TaskController::class,'task_1_calendar']);
+Route::post('/decryptMessage/{message}', [TaskController::class, 'decryptMessage']);
+Route::post('/encryptMessage/{message}', [TaskController::class, 'encryptMessage']);
+
+Route::post('/lcdDisplay/{digits}', [TaskController::class, 'lcdDisplay']);
+
+Route::get('/lotteryWinners', [TaskController::class, 'lotteryWinners']);
+Route::get('/incomeStatistic', [TaskController::class, 'incomeStatistic']);
 
 
-Route::get('/task2/{excell_string}',[TaskController::class,'task2']);
-
-Route::post('/task3/user',[TaskController::class,'task3_user']);
-Route::post('/task3/company',[TaskController::class,'task3_company']);
 
 
