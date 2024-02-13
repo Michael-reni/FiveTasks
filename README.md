@@ -15,16 +15,16 @@ $ php artisan l5-swagger:generate
 ## To look inside database, you can access pgadmin in the browser "http://localhost:5559" (wait a while after you passed it to the browser, pg admin needs time to load), 
 credentials are in .env file, but if you didn't change them, these should be default values:
 ```
-	login = email_pgadmin@pgadmin.org
-	password = secret_admin
+login = email_pgadmin@pgadmin.org
+password = secret_admin
 ```	
 ## To connect with database: Rigth Click On Serwer->register->serwer->connection
 ```
-	  hotstname = postgres_three_tasks
-	  port = 5432
-	  database = postgres
-	  user = postgres
-	  password = secret
+hotstname = postgres_three_tasks
+port = 5432
+database = postgres
+user = postgres
+password = secret
 ```
 ## files to check  for each tasks
 ### task1: "App\Http\Controllers\TaskController->decryptMessage()"
