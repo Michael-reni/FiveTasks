@@ -15,19 +15,20 @@ $ php artisan l5-swagger:generate
 ## To look inside database, you can access pgadmin in the browser "http://localhost:5559" (wait a while after you passed it to the browser, pg admin needs time to load), 
 credentials are in .env file, but if you didn't change them, these should be default values:
 ```
-	$login = email_pgadmin@pgadmin.org
-	$password = secret_admin
+	login = email_pgadmin@pgadmin.org
+	password = secret_admin
 ```	
 ## To connect with database: Rigth Click On Serwer->register->serwer->connection
 ```
-	$  hotstname = postgres_three_tasks
-	$  port = 5432
-	$	database = postgres
-	$	user = postgres
-	$	password = secret
+	  hotstname = postgres_three_tasks
+	  port = 5432
+	  database = postgres
+	  user = postgres
+	  password = secret
 ```
 ## files to check  for each tasks
-### task1: "App\Http\Controllers\TaskController->task_1_calendar()", "resources\views\task_1_calendar.blade.php"
-### task2: "App\Http\Controllers\TaskController->task2()"
-### task3: "App\Http\Controllers\TaskController->task3_user", "App\Http\Controllers\TaskController->task3_company"  
-### task3: "App\Rules\nip", "database\migrations\2022_09_14_202522_create_companies_table_task_3.php", "database\migrations\2022_09_14_201704_create_users_table_task_3.php"
+### task1: "App\Http\Controllers\TaskController->decryptMessage()"
+### task2: "App\Http\Controllers\TaskController->encryptMessage()"
+### task3: "App\Http\Controllers\TaskController->lcdDisplay"
+### task4: "App\Http\Controllers\TaskController->lotteryWinners"
+### task5: "App\Http\Controllers\TaskController->incomeStatistic"
