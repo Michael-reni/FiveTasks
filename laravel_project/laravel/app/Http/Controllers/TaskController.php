@@ -11,20 +11,24 @@ class TaskController extends Controller
    
     /**
      * @OA\Post(
-     *      path="/decryptMessage/{message}",
+     *      path="/decryptMessage",
      *      tags={"tasks"},
 
      *      summary="Decrypt message.",
      *     
-     *      @OA\Parameter(
-     *          name="message",
-     *          description="Message to decrypt.",
-     *          in="path",
-     *          @OA\Schema(
-     *              type="String",
-     *              example="(o>!a!"
-     *          )
-     *      ),
+     *      @OA\RequestBody(
+     *     request="Decrypt message.",
+     *     description="Decrypt message.",
+     *     required=true,
+     *     @OA\JsonContent(
+     *         type="object",
+     *         @OA\Property(
+     *             property="message",
+     *             type="String",
+     *            example=")g!ld, j(!ad ""> h>£ gdol>!o!"" o!(!c>£"
+     *         )
+     *     )
+     * ),
      * 
      *      @OA\Response(
      *          response=200,
@@ -39,8 +43,10 @@ class TaskController extends Controller
      * 
      *     )
      */
-    public function decryptMessage(Request $request, String $message) {
+    public function decryptMessage(Request $request) {
       
+        $message = $request->json('message');
+        
         $dictionary = [
             '!' => 'a', 'c' => 'n', 
             ')' => 'b', 'd' => 'o', 
@@ -77,20 +83,24 @@ class TaskController extends Controller
 
     /**
      * @OA\Post(
-     *      path="/encryptMessage/{message}",
+     *      path="/encryptMessage",
      *      tags={"tasks"},
 
      *      summary="Encrypt message.",
      *     
-     *      @OA\Parameter(
-     *          name="encryptedMessage",
-     *          description="Message to encrypt.",
-     *          in="path",
-     *          @OA\Schema(
-     *              type="String",
-     *              example="dziala"
-     *          )
-     *      ),
+     * @OA\RequestBody(
+     *     request="Encrypt message.",
+     *     description="Encrypt message.",
+     *     required=true,
+     *     @OA\JsonContent(
+     *         type="object",
+     *         @OA\Property(
+     *             property="message",
+     *             type="String",
+     *             example="Zażółć, gęślą jaźń."
+     *         )
+     *     )
+     * ),
      * 
      *      @OA\Response(
      *          response=200,
@@ -105,7 +115,9 @@ class TaskController extends Controller
      * 
      *     )
      */
-    public function encryptMessage(Request $request, String $message) {
+    public function encryptMessage(Request $request) {
+       
+        $message = $request->json('message');
         
         $dictionary = [
             '!' => 'a', 'c' => 'n', 
@@ -137,19 +149,23 @@ class TaskController extends Controller
 
      /**
      * @OA\Post(
-     *      path="/lcdDisplay/{digits}",
+     *      path="/lcdDisplay",
      *      tags={"tasks"},
      *      summary="Digits",
      *     
-     *      @OA\Parameter(
-     *          name="digits",
-     *          description="Digits to display",
-     *          in="path",
-     *          @OA\Schema(
-     *              type="String",
-     *              example="0123"
-     *          )
-     *      ),
+     * @OA\RequestBody(
+     *     request="all digits",
+     *     description="All digits",
+     *     required=true,
+     *     @OA\JsonContent(
+     *         type="object",
+     *         @OA\Property(
+     *             property="digits",
+     *             type="String",
+     *             example="0123456789"
+     *         )
+     *     )
+     * ),
      * 
      *      @OA\Response(
      *          response=200,
@@ -164,8 +180,10 @@ class TaskController extends Controller
      * 
      *     )
      */
-    public function lcdDisplay(Request $request, String $digits) {
+    public function lcdDisplay(Request $request) {
         
+
+        $digits = $request->json('digits');
         // zrobić z tego inny exception
         if (preg_match('/[^0-9]/', $digits)) {
             throw new Exception('Można podawać tylko cyfry od 0-9.');
@@ -176,7 +194,7 @@ class TaskController extends Controller
             '1' => '   ',
             '2' => ' _ ',
             '3' => ' _ ',
-            '4' => ' _ ',
+            '4' => '   ',
             '5' => ' _ ',
             '6' => ' _ ',
             '7' => ' _ ',

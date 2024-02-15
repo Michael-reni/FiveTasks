@@ -19,10 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/decryptMessage/{message}', [TaskController::class, 'decryptMessage']);
-Route::post('/encryptMessage/{message}', [TaskController::class, 'encryptMessage']);
+Route::post('/decryptMessage', [TaskController::class, 'decryptMessage']);
+Route::post('/encryptMessage', [TaskController::class, 'encryptMessage']);
 
-Route::post('/lcdDisplay/{digits}', [TaskController::class, 'lcdDisplay']);
+Route::post('/lcdDisplay', [TaskController::class, 'lcdDisplay']);
 
 Route::get('/lotteryWinners', [TaskController::class, 'lotteryWinners']);
 Route::get('/incomeStatistic', [TaskController::class, 'incomeStatistic']);

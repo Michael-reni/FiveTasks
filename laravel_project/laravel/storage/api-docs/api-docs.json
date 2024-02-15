@@ -14,24 +14,31 @@
         }
     ],
     "paths": {
-        "/decryptMessage/{message}": {
+        "/decryptMessage": {
             "post": {
                 "tags": [
                     "tasks"
                 ],
                 "summary": "Decrypt message.",
-                "operationId": "44e9a51513af3e745cb38457585b5abe",
-                "parameters": [
-                    {
-                        "name": "message",
-                        "in": "path",
-                        "description": "Message to decrypt.",
-                        "schema": {
-                            "type": "String",
-                            "example": "(o>!a!"
+                "operationId": "23259d7bf7ebdae1bb7b49fe1b66aa6f",
+                "requestBody": {
+                    "request": "Decrypt message.",
+                    "description": "Decrypt message.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "message": {
+                                        "type": "String",
+                                        "example": ")g!ld, j(!ad \"> h>£ gdol>!o!\" o!(!c>£"
+                                    }
+                                },
+                                "type": "object"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -47,24 +54,31 @@
                 }
             }
         },
-        "/encryptMessage/{message}": {
+        "/encryptMessage": {
             "post": {
                 "tags": [
                     "tasks"
                 ],
                 "summary": "Encrypt message.",
-                "operationId": "1690daddbf033534d223a42b5c640184",
-                "parameters": [
-                    {
-                        "name": "encryptedMessage",
-                        "in": "path",
-                        "description": "Message to encrypt.",
-                        "schema": {
-                            "type": "String",
-                            "example": "dziala"
+                "operationId": "c970365a0a987ec8c80299088029239b",
+                "requestBody": {
+                    "request": "Encrypt message.",
+                    "description": "Encrypt message.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "message": {
+                                        "type": "String",
+                                        "example": "Zażółć, gęślą jaźń."
+                                    }
+                                },
+                                "type": "object"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -80,24 +94,31 @@
                 }
             }
         },
-        "/lcdDisplay/{digits}": {
+        "/lcdDisplay": {
             "post": {
                 "tags": [
                     "tasks"
                 ],
                 "summary": "Digits",
-                "operationId": "05d712d5575c07f873ed562c9f6134ec",
-                "parameters": [
-                    {
-                        "name": "digits",
-                        "in": "path",
-                        "description": "Digits to display",
-                        "schema": {
-                            "type": "String",
-                            "example": "0123"
+                "operationId": "f89b980ab9af14ba48e2352b17ee0e67",
+                "requestBody": {
+                    "request": "all digits",
+                    "description": "All digits",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "digits": {
+                                        "type": "String",
+                                        "example": "0123456789"
+                                    }
+                                },
+                                "type": "object"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "OK",
