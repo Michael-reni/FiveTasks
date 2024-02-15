@@ -7,6 +7,7 @@ $ docker-compose --env-file ./laravel_project/laravel/.env up -d
 $ docker exec -it nginx_three_tasks bash
 $ cd app/laravel/
 $ composer install
+$ php artisan migrate
 $ php artisan l5-swagger:generate
 ```
 ## Now you can access Swagger documentation. Copy Paste it to the browser "http://127.0.0.1:8089/api/documentation". You can validate all 5 tasks here.
